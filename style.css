@@ -1,0 +1,35 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+
+.header{
+    border:1px solid black;
+    display:flex;
+    flex-direction: row;
+    justify-content:center;
+    height:20vh;
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(13,46,223,0.8127626050420168) 100%);
+    color:white;
+    font-size: 5vh;
+}
+.title{
+    margin-top: 10vh;
+
+    font-family:helvetica;
+}
+
+.grid-box{
+    height:70vh;
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+}
+.grid{
+    margin-top:15vh;
+    display:grid;
+    grid-template-rows: repeat(3, 100px);
+    grid-template-columns: repeat(3, 100px);
+    gap: 10px solid black;
+    
+}
