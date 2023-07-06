@@ -28,7 +28,7 @@ const gameBoard = (() => {
     }
     const winningCombinations = [
         [0,1,2], [3,4,5], [6,7,8],    //rows
-        [0,3,6], [1,4,5], [2,5,8],   //columns
+        [0,3,6], [1,4,7], [2,5,8],   //columns
         [0,4,8], [2,4,6]            //diagonals
     ];
 
@@ -41,6 +41,14 @@ const gameBoard = (() => {
         
         if(!gameboard.includes('')){
             alert('TIE!');
+        }else{
+            for(let combination of winningCombinations){
+                if(gameboard[combination[0]] === 'X' && gameboard[combination[1]] === 'X' && gameboard[combination[2]] === 'X'){
+                    alert(`${player1.name} wins!`);
+                }else if(gameboard[combination[0]] === 'O' && gameboard[combination[1]] === 'O' && gameboard[combination[2]] === 'O'){
+                    alert(`${player2.name} wins!`);
+                }
+            }
         }
     }
 
@@ -64,7 +72,7 @@ const playerFactory = (name, symbol) => {
 
 const game = (() =>{
     let turnCount = 0;
-
+    const gridSpaces = document.querySelectorAll('.gridspace');
     function play(symbol, index){
         gameBoard.updateCell(index, symbol);
         console.log(gameBoard.getGameboard());
@@ -72,8 +80,6 @@ const game = (() =>{
         gameBoard.checkCombination();
         turnCount++;
     }
-        const gridSpaces = document.querySelectorAll('.gridspace');
-
         gridSpaces.forEach((gridspace, index) => {
         gridspace.addEventListener('click', function(){
             if(playable === 1 && turnCount === 0 || turnCount === 2 || turnCount === 4 || turnCount === 6 || turnCount === 8){
@@ -83,8 +89,6 @@ const game = (() =>{
             }
         });
     });
-
-
 })();
 
 
