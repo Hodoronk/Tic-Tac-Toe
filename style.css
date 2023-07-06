@@ -36,4 +36,36 @@
 #playernames{
     display:flex;
     flex-direction:column;
+    border-radius: 10px;
+    border:1px solid black;
+    width:50vh;
+    position:absolute;
+    margin-top: 15vh;
+    margin-left:5vh;
+    height:30vh;
+}
+
+.player-div, #h2-player-names{
+    margin-left: 10vh;
+}
+#h2-player-names{
+    margin-bottom:2vh;
+}
+#submitter{
+    margin-left:15vh;
+    margin-top:10vh;
+    height:7vh;
+    width:20vh;
+    border-radius: 15px;
+    font-family:helvetica;
+    font-size: 20px;
+}
+
+#versus-div{
+    display:inline-block;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    position:relative;
+    top:7vh;
 }

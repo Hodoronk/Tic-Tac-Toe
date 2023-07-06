@@ -1,28 +1,11 @@
+// for visuals
+const firstGuy = document.querySelector('#firstGuy');
+const secondGuy = document.querySelector('#secondGuy');
+
+//utility
 let player1 = '';
 let player2 = '';
 let playable = 0;
-
-
-
-
-
-
-// const playerName = document.querySelector('#playerName');
-// const submitter = document.querySelector('#submitter');
-// submitter.addEventListener('click', function(){
-//     if(player1 === ''){
-//     player1 = playerFactory(playerName.value, 'X');
-//     console.log(`Player one name is ${player1.name}, and his symbol is ${player1.symbol}`);
-
-//     }else if(player2 === ''){
-//         player2 = playerFactory(playerName.value, 'O');
-//         console.log(`Player two name is ${player2.name}, and his symbol is ${player2.symbol}`);
-//         playable = 1;
-//     }else{
-//         console.log('You already have 2 players!');
-//     }
-// });
-
 const playerName = document.querySelector('#playerName1');
 const playerName2 = document.querySelector('#playerName2');
 const submitter = document.querySelector('#submitter');
@@ -32,43 +15,12 @@ submitter.addEventListener('click', function(){
     }else if(playerName.value !== '' && playerName.value !== ''){
         player1 = playerFactory(playerName.value, 'X');
         player2 = playerFactory(playerName2.value, 'O');
+            firstGuy.textContent = player1.name;
+            secondGuy.textContent = player2.name;
         playable = 1;
         console.log(`Player one: ${player1.name}, Symbol: ${player1.symbol}\n Player two: ${player2.name}, Symbol: ${player2.symbol}\n`)
     }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 const gameBoard = (() => {
     function renderGameSpace(){
@@ -101,10 +53,7 @@ const gameBoard = (() => {
                 }
             }
         }
-    }
-
-
-    
+    } 
     return{
         renderGameSpace,
         getGameboard,
