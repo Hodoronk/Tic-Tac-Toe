@@ -1,14 +1,14 @@
-// for visuals
-const firstGuy = document.querySelector('#firstGuy');
-const secondGuy = document.querySelector('#secondGuy');
 
-//utility
-let player1 = '';
-let player2 = '';
-let playable = 0;
+const firstGuy = document.querySelector('#firstGuy'); // for visual purposes
+const secondGuy = document.querySelector('#secondGuy'); // for visual purposes
 const playerName = document.querySelector('#playerName1');
 const playerName2 = document.querySelector('#playerName2');
 const submitter = document.querySelector('#submitter');
+
+let playable = 0;
+let player1 = '';
+let player2 = '';
+
 submitter.addEventListener('click', function(){
     if(playerName.value === '' || playerName2.value === ''){
         alert('You must insert player names!');
@@ -21,7 +21,7 @@ submitter.addEventListener('click', function(){
         console.log(`Player one: ${player1.name}, Symbol: ${player1.symbol}\n Player two: ${player2.name}, Symbol: ${player2.symbol}\n`)
     }
 });
-
+// objects
 const gameBoard = (() => {
     function renderGameSpace(){
         const gridSpaces = document.querySelectorAll('.gridspace');
@@ -29,19 +29,19 @@ const gameBoard = (() => {
             gridspace.textContent = gameboard[index];
         });
     }
-    const winningCombinations = [
-        [0,1,2], [3,4,5], [6,7,8],    //rows
-        [0,3,6], [1,4,7], [2,5,8],   //columns
-        [0,4,8], [2,4,6]            //diagonals
-    ];
-
     const gameboard = ['', '', '', '', '', '', '', '', ''];
     const getGameboard = () => gameboard;
+
+    const winningCombinations = [
+        [0,1,2], [3,4,5], [6,7,8],    
+        [0,3,6], [1,4,7], [2,5,8],   
+        [0,4,8], [2,4,6]            
+    ];
+
     const updateCell = (index, symbol) => {
         gameboard[index] = symbol;
     };
     function checkCombination(){ 
-        
         if(!gameboard.includes('')){
             alert('TIE!');
         }else{
@@ -54,21 +54,10 @@ const gameBoard = (() => {
             }
         }
     } 
-    return{
-        renderGameSpace,
-        getGameboard,
-        updateCell,
-        checkCombination,
-        
-    };
+    return{renderGameSpace, getGameboard,updateCell, checkCombination };
 })();
 
-const playerFactory = (name, symbol) => {
-    return{
-        name,
-        symbol,
-    }
-}
+const playerFactory = (name, symbol) => { return{name, symbol} }
 
 const game = (() =>{
     let turnCount = 0;
